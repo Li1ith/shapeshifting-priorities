@@ -91,8 +91,7 @@ aotb-cards/
 │   ├── App.js              # Main App component
 │   ├── App.css             # Styles for App component
 │   ├── index.js            # Entry point
-│   ├── index.css           # Global styles
-│   └── reportWebVitals.js  # Performance monitoring
+│   └── index.css           # Global styles
 ├── .eslintrc.js            # ESLint configuration
 ├── .prettierrc             # Prettier configuration
 ├── .gitignore              # Git ignore file

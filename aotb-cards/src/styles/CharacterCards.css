@@ -1,164 +1,164 @@
 /* General Styles */
 body {
-    background-color: #f0f0f0;
-    font-family: "Roboto", sans-serif;
-    margin: 0;
-    padding: 20px;
-    -webkit-font-smoothing: antialiased;
+  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Page Layout for A4 Printing */
 .page {
-    width: 210mm !important;
-    height: 297mm !important;
-    padding: 10mm;
-    margin: 20px auto;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10mm;
-    box-sizing: border-box;
+  width: 210mm !important;
+  height: 297mm !important;
+  padding: 10mm;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10mm;
+  box-sizing: border-box;
 }
 
 /* Card Styling for Landscape Orientation */
 .card {
-    height: 80mm !important;
-    border: 2px solid #5a4f47;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    background-color: #fdfdfa;
-    overflow: hidden;
+  height: 80mm !important;
+  border: 2px solid #5a4f47;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  background-color: #fdfdfa;
+  overflow: hidden;
 }
 
 .card-header {
-    background-color: #e0ddd7;
-    padding: 4mm;
-    text-align: center;
-    border-bottom: 2px solid #5a4f47;
+  background-color: #e0ddd7;
+  padding: 4mm;
+  text-align: center;
+  border-bottom: 2px solid #5a4f47;
 }
 
 .card-role {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 700;
-    font-size: 1.2em;
-    margin: 0;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 0;
 }
 
 .card-body {
-    padding: 4mm;
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4mm;
-    font-size: 0.9em;
+  padding: 4mm;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4mm;
+  font-size: 0.9em;
 }
 
 .panel {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .description {
-    font-family: "Libre Baskerville", serif;
-    font-style: italic;
-    font-size: 0.95em;
-    line-height: 1.5;
-    color: #333;
-    flex-grow: 1;
+  font-family: 'Libre Baskerville', serif;
+  font-style: italic;
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #333;
+  flex-grow: 1;
 }
 
 .image-area {
-    border: 2px dashed #ccc;
-    background-color: #f9f9f9;
-    height: 200px;
-    margin-top: 4mm;
-    border-radius: 4px;
+  border: 2px dashed #ccc;
+  background-color: #f9f9f9;
+  height: 200px;
+  margin-top: 4mm;
+  border-radius: 4px;
 }
 
 .top-stats {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    text-align: center;
-    background-color: #f3f2ef;
-    border-radius: 4px;
-    margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  text-align: center;
+  background-color: #f3f2ef;
+  border-radius: 4px;
+  margin-bottom: 8px;
 }
 
 .top-stats div {
-    flex-basis: 50%;
+  flex-basis: 50%;
 }
 
 .top-stats .stat-label {
-    font-weight: 700;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    color: #666;
+  font-weight: 700;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: #666;
 }
 .top-stats .stat-value {
-    font-family: "Libre Baskerville", serif;
-    font-size: 1.1em;
-    font-weight: 700;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.1em;
+  font-weight: 700;
 }
 
 .stats-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .stats-table td {
-    border: 1px solid #e0ddd7;
-    padding: 8px;
-    font-size: 1em;
+  border: 1px solid #e0ddd7;
+  padding: 8px;
+  font-size: 1em;
 }
 
 .stats-table tr td:first-child {
-    font-weight: 700;
-    width: 70%;
+  font-weight: 700;
+  width: 70%;
 }
 
 .stats-table tr td:last-child {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 700;
-    text-align: center;
-    font-size: 1.2em;
-    background-color: #f3f2ef;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.2em;
+  background-color: #f3f2ef;
 }
 
 .section {
-    padding: 4mm;
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4mm;
-    font-size: 0.9em;
+  padding: 4mm;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  font-size: 0.9em;
 }
 
 .items-header {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 700;
-    text-align: center;
-    padding: 2mm;
-    background-color: #f3f2ef;
-    border-bottom: 1px solid #e0ddd7;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 2mm;
+  background-color: #f3f2ef;
+  border-bottom: 1px solid #e0ddd7;
 }
 
 /* Print-specific styles */
 @media print {
-    body {
-        background-color: white;
-        margin: 0;
-        padding: 0;
-    }
-    .page {
-        width: 297mm;
-        height: 210mm;
-        margin: 0;
-        box-shadow: none;
-        border: none;
-        page-break-after: always;
-    }
+  body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    width: 297mm;
+    height: 210mm;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    page-break-after: always;
+  }
 }

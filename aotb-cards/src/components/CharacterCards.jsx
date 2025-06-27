@@ -76,9 +76,7 @@ const CharacterCards = () => {
 
     for (let i = 0; i < characters.length; i += cardsPerPage) {
       const pageChunk = characters.slice(i, i + cardsPerPage);
-      const pageCards = pageChunk.map((card, index) => (
-        <CharacterCard key={index} card={card} />
-      ));
+      const pageCards = pageChunk.map((card, index) => <CharacterCard key={index} card={card} />);
       allPages.push(
         <div className="page" key={i / cardsPerPage}>
           {pageCards}

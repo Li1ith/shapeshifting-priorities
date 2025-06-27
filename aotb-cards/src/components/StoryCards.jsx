@@ -14,77 +14,72 @@ const StoryCards = () => {
   }, []);
 
   /**
-   * Helper functions to parse text content for the cards.
+   * Helper functions to parse text content for the stories.
    */
 
   // Extracts the 3-letter acronym from the action text (e.g., "Str Check" -> "STR").
   const getActionAcronym = (actionText) => {
-    if (!actionText) return "";
+    if (!actionText) return '';
     const match = actionText.match(/\b([a-zA-Z]{3})\b/);
-    return match ? match[1].toUpperCase() : "";
+    return match ? match[1].toUpperCase() : '';
   };
 
   // Extracts the result from the text (bracketed content or 'B' for Blocked).
   const getResult = (text) => {
-    if (!text) return "";
+    if (!text) return '';
     const bracketMatch = text.match(/\[(.*?)\]|\((.*?)\)/);
     if (bracketMatch) {
-      return (bracketMatch[1] || bracketMatch[2] || "").trim();
+      return (bracketMatch[1] || bracketMatch[2] || '').trim();
     }
-    return "";
+    return '';
   };
 
   // Removes the result part from the text to clean it up for display.
   const processText = (text) => {
-    if (!text) return "";
+    if (!text) return '';
     return text
-      .replace(/\s*B\s*$/, "")
-      .replace(/\s*\[.*?\]\s*|\s*\(.*?\)\s*/, "")
+      .replace(/\s*B\s*$/, '')
+      .replace(/\s*\[.*?\]\s*|\s*\(.*?\)\s*/, '')
       .trim();
   };
 
   /**
-   * Reusable story card front component.
-   * @param {object} card - The story data object.
-   * @returns {JSX.Element} - The JSX for a single card front.
+   * Reusable story front component.
+   * @param {object} story - The story data object.
+   * @returns {JSX.Element} - The JSX for a single story front.
    */
-  const StoryCardFront = ({ card }) => {
+  const StoryFront = ({ story }) => {
     return (
-      <div className="card">
-        <div className="card-pane">
-          <div className="card-header">
-            <div className="card-title">{card.Area}</div>
-            <div className="card-title">{card.Title}</div>
+      <div className="story">
+        <div className="story-front-left">
+          <div className="story-header">
+            <div className="story-title">{story.Area}</div>
+            <div className="story-title">{story.Title}</div>
           </div>
-          <hr className="card-divider" />
           <div className="notes-section">
             Notes:
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="card-divider" />
-            <div className="notes-spacer"></div>
-            <hr className="card-divider" />
+            <hr className="story-divider" />
             <div className="notes-spacer"></div>
           </div>
         </div>
-        <div className="card-pane">
-          <img
-            className="card-border-image"
-            src={process.env.PUBLIC_URL + '/border.jpeg'}
-            alt=""
-          />
-          <div className="card-title">{card.Title}</div>
-          <hr className="card-divider" />
-          <div className="card-content">
-            <div className="story-section">{card.Story}</div>
+        <div className="story-front-right">
+          <img className="story-border-image" src={process.env.PUBLIC_URL + '/border.png'} alt="" />
+          <div className="story-border-content">
+            <div className="story-title">{story.Title}</div>
+            <hr className="story-divider" />
+            <div className="story-content">
+              <div className="story-section">{story.Story}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -92,25 +87,25 @@ const StoryCards = () => {
   };
 
   /**
-   * Reusable story card back component.
-   * @param {object} card - The story data object.
-   * @returns {JSX.Element} - The JSX for a single card back.
+   * Reusable story back component.
+   * @param {object} story - The story data object.
+   * @returns {JSX.Element} - The JSX for a single story back.
    */
-  const StoryCardBack = ({ card }) => {
-    const acronym = getActionAcronym(card.Action);
-    const failText = processText(card.fail);
-    const failResult = getResult(card.fail);
-    const partialText = processText(card.partial);
-    const partialResult = getResult(card.partial);
-    const successText = processText(card.success);
-    const successResult = getResult(card.success);
+  const StoryBack = ({ story }) => {
+    const acronym = getActionAcronym(story.Action);
+    const failText = processText(story.fail);
+    const failResult = getResult(story.fail);
+    const partialText = processText(story.partial);
+    const partialResult = getResult(story.partial);
+    const successText = processText(story.success);
+    const successResult = getResult(story.success);
 
     return (
-      <div className="card-back">
+      <div className="story-back">
         <div className="action-check">
-          Action: <span>{acronym}</span>
+          Roll your dice and add your <span>{acronym}</span> modifier
         </div>
-        <hr className="card-divider" />
+        <hr className="story-divider" />
         <table className="results-table">
           <tbody>
             <tr>
@@ -135,47 +130,48 @@ const StoryCards = () => {
   };
 
   /**
-   * Renders all cards into pages.
+   * Renders all stories into pages.
    */
-  const renderCards = () => {
-    const cardsPerPage = 3;
+  const renderStories = () => {
+    const storiesPerPage = 3;
     let allPages = [];
 
-    for (let i = 0; i < stories.length; i += cardsPerPage) {
-      const pageChunk = stories.slice(i, i + cardsPerPage);
+    for (let i = 0; i < stories.length; i += storiesPerPage) {
+      const pageChunk = stories.slice(i, i + storiesPerPage);
 
-      // Create the front-side of the cards
-      const frontCards = pageChunk.map((card, index) => (
-        <StoryCardFront key={`front-${i + index}`} card={card} />
+      // Create the front-side of the stories
+      const frontStories = pageChunk.map((story, index) => (
+        <StoryFront key={`front-${i + index}`} story={story} />
       ));
       allPages.push(
-        <div className="page" key={`front-page-${i / cardsPerPage}`}>
-          {frontCards}
+        <div className="page" key={`front-page-${i / storiesPerPage}`}>
+          {frontStories}
         </div>
       );
 
-      // Create the back-side of the cards
-      const backCards = pageChunk.map((card, index) => (
-        <StoryCardBack key={`back-${i + index}`} card={card} />
+      // Create the back-side of the stories
+      const backStories = pageChunk.map((story, index) => (
+        <StoryBack key={`back-${i + index}`} story={story} />
       ));
       allPages.push(
-        <div className="page" key={`back-page-${i / cardsPerPage}`}>
-          {backCards}
+        <div className="page" key={`back-page-${i / storiesPerPage}`}>
+          {backStories}
         </div>
       );
     }
-
     return allPages;
   };
 
   return (
-    <div>
-      <Link to="/" className="back-link">
-        Back to Home
-      </Link>
-      <h1 className="title">Story Cards</h1>
-      <div id="card-container">{renderCards()}</div>
-    </div>
+    <>
+      <div className="no-print">
+        <Link to="/" className="back-link">
+          Back to Home
+        </Link>
+        <h1 className="title">Story Cards</h1>
+      </div>
+      <div id="story-container">{renderStories()}</div>
+    </>
   );
 };
 
