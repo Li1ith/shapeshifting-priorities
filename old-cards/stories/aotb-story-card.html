@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AotB Cards for Printing (Landscape)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <div id="card-container"></div>
+
+    <script>
+      // Data source from CSV, converted to a JSON array.
+      const cardData = [
+        {
+          Phase: "1",
+          Area: "Any",
+          Title: "Webs",
+          Story:
+            "You stretch out your hand to brush aside some cobwebs... but they cling",
+          Action: "Str Check",
+          fail:
+            "Your stuck, the webs stick fast. You call for aid: (next player rolls too) [Blocked]",
+          partial: "You twist & turn but can't break free. [Blocked]",
+          success: "You pull free"
+        },
+        {
+          Phase: "1",
+          Area: "outside",
+          Title: "Mists",
+          Story:
+            "Mist creeps in around you, you see shapes, no faces, is this an echo from the children?",
+          Action: "Per Check",
+          fail: "You run from the faces [move back 1 space]",
+          partial: "You blink and their gone, wtf",
+          success: "You realise the mist drifts away towards the woods"
+        },
+        {
+          Phase: "1",
+          Area: "Any",
+          Title: "Voice",
+          Story:
+            '"I\'m beneath you, buried... HELP!" you hear a voice wisper then scream. ',
+          Action: "Wis Check",
+          fail:
+            "Your start clawing at the floor to free them. You shout for a shovel: (next player rolls too) [Blocked]",
+          partial: "The screams become muffled, a flash of blue then silence.",
+          success:
+            "A flash of blue and the voice goes quiet, you find in loose dirt; a toy shovel, scratched on the handle Wynne"
+        },
+        {
+          Phase: "1",
+          Area: "Any",
+          Title: "Dancing lights",
+          Story: "In the distance, you catch a glance of dancing lights",
+          Action: "Per Check",
+          fail:
+            "Must be a trick of the light, you check with your companions (next player rolls too) [Blocked]",
+          partial: "They flit and float, so pretty.",
+          success: "They seem to entice you into the woods"
+        },
+        {
+          Phase: "1",
+          Area: "Woodcutter",
+          Title: "Lumberjack",
+          Story: "He greets you with an axe raised and swinging.",
+          Action: "Str Check",
+          fail: "You dodge, but it glances your sholder [Take 1 damage]",
+          partial:
+            "you dodge, but watch out for the back hand. (next player rolls too)",
+          success:
+            "You dodge and he breaks down in tears, He's missing something, he wanted to protect"
+        },
+        {
+          Phase: "1",
+          Area: "School",
+          Title: "Empty Desks",
+          Story:
+            "Dusty desks still messy with slate tablets and chalk... why does Elara not remember them",
+          Action: "Wis Check",
+          fail: "You pick up a tablet and see simple sums",
+          partial: "So many doodles of mushroms ",
+          success: "The drawings, all of them are mushroom circles"
+        },
+        {
+          Phase: "1",
+          Area: "School",
+          Title: "Elara's Desk",
+          Story:
+            "A well worn desk, a scattering of lesson plans, a cold cup of tea",
+          Action: "Per Check",
+          fail: "How does Elara fill her days with no one to teach",
+          partial:
+            "A small red book in the drawer, filled with names and test scores.",
+          success:
+            "Under the mark book a well worn guide: Fae & protective wards"
+        },
+        {
+          Phase: "1",
+          Area: "Church",
+          Title: "Stained Glass",
+          Story:
+            "Sunlight filters through ancient stained glass, depicting a forgotten saint.",
+          Action: "Wis Check",
+          fail: "The light blinds you, and you feel a sense of dread.",
+          partial: "A single pane glows brighter, hinting at something hidden.",
+          success: "You understand the saint's tale and a new path opens."
+        },
+        {
+          Phase: "1",
+          Area: "Church",
+          Title: "Silent Gravestones",
+          Story: "Rows of weathered gravestones stand in solemn silence.",
+          Action: "Wis Check",
+          fail: "The names blur, and you feel overwhelmed by sadness.",
+          partial:
+            "One gravestone seems to hum faintly, drawing your attention.",
+          success: "You sense a lingering presence and gain a vital clue."
+        },
+        {
+          Phase: "1",
+          Area: "Bakery",
+          Title: "Sweet treats",
+          Story:
+            '"Hullo, let me get you an Iced bun on the house, I seem to have too many" - Bill Baker',
+          Action: "Per Check",
+          fail: "You prefer savoury snacks and politely decline",
+          partial: "You eat a sweet treat, it's very tasty",
+          success:
+            '"Since I spotted them blue lights at night, I keep baking too many cakes"'
+        },
+        {
+          Phase: "1",
+          Area: "Church",
+          Title: "Priest & Quiet",
+          Story:
+            "\"Welcome, it's so nice to see new faces, it's been too long\" - Reverend Janet Joy",
+          Action: "Wis Check",
+          fail: "Your stuck nattering with the priest [Blocked]",
+          partial: "You make a quick exit",
+          success: "The priest grants you a blessing [Draw an Item]"
+        },
+        {
+          Phase: "1",
+          Area: "House",
+          Title: "Cosy Cottage",
+          Story:
+            'An inviting smell wafts from a bubbling stew, "Come in and try some" - Godric Senior',
+          Action: "Per Check",
+          fail: "You just have to have a bowl, maybe 2 or 3... [Blocked]",
+          partial: "It's real tasty, you thank Godric.",
+          success:
+            "Take some stew with you, it might come in handy later [Draw an Item]"
+        },
+        {
+          Phase: "2",
+          Area: "River Bank",
+          Title: "Abandon Ship",
+          Story: "A wooden toy boat is tangled in some reeds",
+          Action: "Per Check",
+          fail: "It floats away as you try and grab it",
+          partial: "You pick it up, maybe it'll be of use",
+          success: "Carved on the side a name: Sara "
+        },
+        {
+          Phase: "2",
+          Area: "Woods",
+          Title: "Whispering Trees",
+          Story:
+            "The trees seem to sway and whisper secrets as you pass through.",
+          Action: "Per Check",
+          fail: "You feel a chill and quicken your pace.",
+          partial: "You hear faint, disjointed words, but no clear message.",
+          success: "You find something amongst the tangled roots [Draw an Item]"
+        },
+        {
+          Phase: "2",
+          Area: "River",
+          Title: "Still Waters",
+          Story:
+            "The surface of the river seems unnaturally still, reflecting the eerie sky.",
+          Action: "Str Check",
+          fail: "You feel a sudden urge to dive in, despite the cold, ",
+          partial:
+            "Ripples appear, disturbing the stillness, revealing a submerged object. [Draw an Item]",
+          success:
+            "You see clearly 2 objects beneath the surface. [Draw 2 Items]"
+        },
+        {
+          Phase: "2",
+          Area: "Swamp",
+          Title: "Glowing Giggle",
+          Story:
+            "A small blue orb dances ahead, chuckling just as you trip on a root.",
+          Action: "Per Check",
+          fail: "You fall flat. It laughs harder. ",
+          partial: "You stagger after it. Your pride is left behind.",
+          success:
+            "You catch up and see it vanish behind a tree, leaving a faint trail, deeper into the woods."
+        },
+        {
+          Phase: "2",
+          Area: "Marsh",
+          Title: "Come Closer",
+          Story: "You hear your name whispered in the glow. Familiar. Mocking.",
+          Action: "Wis Check",
+          fail: "You follow it into waist-high muck. You regret everything.",
+          partial: "You hesitate. The voice fades, but your mind still spins.",
+          success:
+            "You close your eyes. The whisper breaks like glass in the wind."
+        },
+        {
+          Phase: "2",
+          Area: "Forest",
+          Title: "Hot Pursuit",
+          Story: "The light darts off. Like it’s daring you to chase.",
+          Action: "Str Check",
+          fail:
+            "You lunge. A root catches your foot. You go down hard.  [Take 1 damage]",
+          partial: "You keep pace, but barely. It loops mockingly above.",
+          success:
+            "You surge ahead. The wisp zips off deeper in, almost impressed."
+        },
+        {
+          Phase: "2",
+          Area: "Forest",
+          Title: "Mimic Light",
+          Story:
+            "You see a light. Then another. Then it copies your movements.",
+          Action: "Per Check",
+          fail:
+            "You follow the wrong one. You’re now lost. [move back 1 space]",
+          partial: "You pause. The lights pause with you. Creepy.",
+          success: "You see the real one wink out. The others follow."
+        },
+        {
+          Phase: "2",
+          Area: "Clearing",
+          Title: "Wisp's Game",
+          Story:
+            "It zips around your head, then vanishes—only to reappear behind you.",
+          Action: "Per Check",
+          fail: "You spin. Trip. Hit tree. Not your best moment.",
+          partial: "You follow it, slowly. It seems bored.",
+          success: "You catch its pattern. It drifts off, defeated."
+        },
+        {
+          Phase: "2",
+          Area: "Fork",
+          Title: "False Path",
+          Story: "The wisp floats left. But the right path looks safer.",
+          Action: "Wis Check",
+          fail: "You follow it. You’re now somewhere very wrong.",
+          partial: "You linger at the fork. The wisp waits, taunting.",
+          success: "You go your own way. The wisp sputters and fades."
+        },
+        {
+          Phase: "2",
+          Area: "Woods",
+          Title: "Drifting Light",
+          Story:
+            "A faint glow moves between the trees. It's almost... soothing.",
+          Action: "Per Check",
+          fail: "You follow blindly and walk into a branch.",
+          partial: "You get close, but it flickers away.",
+          success: "You follow from a distance. It leads to something buried."
+        },
+        {
+          Phase: "2",
+          Area: "Forest",
+          Title: "Mock Duel",
+          Story: "The light dodges your blade before you swing. Again.",
+          Action: "Str Check",
+          fail: "You slash air. It giggles. Discard this card.",
+          partial: "You graze it—maybe? Your arm tingles.",
+          success: "You time it perfectly. It blinks out."
+        },
+        {
+          Phase: "2",
+          Area: "Path",
+          Title: "Flicker Eyes",
+          Story: "It floats behind you. You know without looking.",
+          Action: "Per Check",
+          fail: "You turn too fast. It’s gone. You’re dizzy.",
+          partial: "You catch a glimpse. Still nothing useful.",
+          success: "You track it in a reflection. It notices."
+        },
+        {
+          Phase: "2",
+          Area: "Edge",
+          Title: "Voice of a Friend",
+          Story: "A light appears—speaking in a trusted voice.",
+          Action: "Wis Check",
+          fail: "You run toward it. The voice shifts to mockery.",
+          partial: "You freeze, unsure. The voice fades.",
+          success: "You see through the illusion. It flits away silently."
+        },
+        {
+          Phase: "2",
+          Area: "Marsh",
+          Title: "The Laughing One",
+          Story: "Every time you step, it snickers. Louder.",
+          Action: "Wis Check",
+          fail: "You yell. It mimics your voice.",
+          partial: "You stay silent. It moves on.",
+          success: "You start laughing too. It stops."
+        },
+        {
+          Phase: "2",
+          Area: "Marsh",
+          Title: "Cold Fire",
+          Story: "The orb burns blue, but gives no warmth.",
+          Action: "Per Check",
+          fail: "You reach out. Fingers numb.",
+          partial: "You hesitate. Your breath fogs.",
+          success: "You watch. The flame pulses, then fades."
+        },
+        {
+          Phase: "2",
+          Area: "Forest",
+          Title: "Hollow Eyes",
+          Story: "The light floats just behind a tree. Watching.",
+          Action: "Per Check",
+          fail: "You chase it. Nothing there. You’re scratched up.",
+          partial: "You stare back. It waits.",
+          success: "You fake a turn. Catch it moving."
+        },
+        {
+          Phase: "3",
+          Area: "Woods",
+          Title: "Circle Dance",
+          Story: "A ring of lights sways around you. You’re not invited.",
+          Action: "Wis Check",
+          fail: "You take a step forward. They close in. [Take 1 damage]",
+          partial: "You hold back. The lights flicker, annoyed.",
+          success: "You resist. The circle breaks, vanishing into the mist."
+        },
+        {
+          Phase: "2",
+          Area: "Any",
+          Title: "Heckler",
+          Story: '"Nice boots," a voice says. You’re alone. Or not.',
+          Action: "Wis Check",
+          fail: "You shout back. The echo answers with laughter.",
+          partial:
+            "You grit your teeth. The laughter fades, but not fast enough.",
+          success: "You smirk. The voice stops, like it lost interest."
+        },
+        {
+          Phase: "3",
+          Area: "Swamp",
+          Title: "Wisp Trap",
+          Story: "Several wisps form a triangle around you. Coincidence? No.",
+          Action: "Wis Check",
+          fail: "You take a step. They buzz and burn [Take 1 damage]",
+          partial: "You stand still. They circle faster.",
+          success: "You sidestep calmly. The trap breaks."
+        },
+        {
+          Phase: "3",
+          Area: "Swamp",
+          Title: "Lights in the Fog",
+          Story: "Dozens of tiny lights flicker inside the mist.",
+          Action: "Per Check",
+          fail: "You walk straight into a bush. Loudly.",
+          partial: "You squint. They blur together.",
+          success: "You pick out the real one. The others scatter."
+        },
+        {
+          Phase: "3",
+          Area: "Woods",
+          Title: "The Dare",
+          Story: "A wisp waits. Close enough to touch, if you dare?",
+          Action: "Str Check",
+          fail: "You swipe. It zaps you. [Take 1 damage]",
+          partial: "You brush it. It zaps your hair instead.",
+          success: "You strike. It vanishes with a shriek."
+        },
+        {
+          Phase: "3",
+          Area: "Forest",
+          Title: "Looping Trail",
+          Story: "You keep seeing the same wisp. Same rock. Same moss.",
+          Action: "Wis Check",
+          fail: "You’re caught in a loop. [Blocked]",
+          partial: "You mark a tree. It’s already marked. [Blocked]",
+          success: "You step off the trail. The loop breaks."
+        },
+        {
+          Phase: "3",
+          Area: "Any",
+          Title: "Too Many",
+          Story: "One wisp splits into two. Then four.",
+          Action: "Wis Check",
+          fail: "You panic and run. You drop something. [Drop an Item]",
+          partial: "You hold your ground. They hover, curious.",
+          success: "You close your eyes. When you open them—gone."
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Lantern's Song",
+          Story:
+            "Her lantern hums a lullaby that pulls at memories you don’t want to remember.",
+          Action: "Wis Check",
+          fail:
+            "You pause mid-step, lost in another childhood you don't recognize. [Blocked]",
+          partial:
+            "You shiver, holding your ground as a name escapes your lips.",
+          success:
+            "You speak your truth aloud. Her lantern flickers violently. (Deal 1 damage)"
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Flickering Form",
+          Story:
+            "She shifts between a crone, a mother, and a little girl. All weeping.",
+          Action: "Per Check",
+          fail:
+            "You follow her face, losing sense of what’s real.  [Take 1 damage]",
+          partial:
+            "You look away, but she notices. The ground pulses. [Take 1 damage]",
+          success:
+            "You lock onto her true shape—just as the lantern dims. (Deal 1 damage)"
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Memory Mire",
+          Story: "The mushrooms release spores. You forget why you came.",
+          Action: "Wis Check",
+          fail: "You breathe deep. Something important is gone now. [Blocked]",
+          partial: "You hold your breath, but for how long.",
+          success:
+            "You hold your breath and kick a mushroom into her path. The lantern sputters. (Deal 1 damage)"
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Stolen Giggle",
+          Story: "You hear a child laugh behind you—your name in the voice.",
+          Action: "Per Check",
+          fail: "You turn. No child. Just the Matron smiling. [Take 1 damage]",
+          partial: "You resist. The sound lingers too long in your ears.",
+          success:
+            "You call it by name. The lantern cracks at the edge. (Deal 1 damage)"
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Shatter the Light",
+          Story: "She raises the lantern. Inside, something screams silently.",
+          Action: "Str Check",
+          fail: "You strike, but your weapon passes through like mist.",
+          partial: "You graze it. She recoils, but it's not enough.",
+          success:
+            "You land a solid blow. The glass fractures with a piercing wail. (Deal 1 damage) "
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Shatter the Light",
+          Story: "She raises the lantern. Inside, something screams silently.",
+          Action: "Str Check",
+          fail: "You strike, but your weapon passes through like mist.",
+          partial: "You graze it. She recoils, but it's not enough.",
+          success:
+            "You land a solid blow. The glass fractures with a piercing wail. (Deal 1 damage) "
+        },
+        {
+          Phase: "3",
+          Area: "Grove",
+          Title: "Shatter the Light",
+          Story: "She raises the lantern. Inside, something screams silently.",
+          Action: "Str Check",
+          fail: "You strike, but your weapon passes through like mist.",
+          partial: "You graze it. She recoils, but it's not enough.",
+          success:
+            "You land a solid blow. The glass fractures with a piercing wail. (Deal 1 damage) "
+        }
+      ];
+
+      /**
+       * Helper functions to parse text content for the cards.
+       */
+
+      // Extracts the 3-letter acronym from the action text (e.g., "Str Check" -> "STR").
+      const getActionAcronym = actionText => {
+        if (!actionText) return "";
+        const match = actionText.match(/\b([a-zA-Z]{3})\b/);
+        return match ? match[1].toUpperCase() : "";
+      };
+
+      // Extracts the result from the text (bracketed content or 'B' for Blocked).
+      const getResult = text => {
+        if (!text) return "";
+        const bracketMatch = text.match(/\[(.*?)\]|\((.*?)\)/);
+        if (bracketMatch) {
+          return (bracketMatch[1] || bracketMatch[2] || "").trim();
+        }
+        return "";
+      };
+
+      // Removes the result part from the text to clean it up for display.
+      const processText = text => {
+        if (!text) return "";
+        return text
+          .replace(/\s*B\s*$/, "")
+          .replace(/\s*\[.*?\]\s*|\s*\(.*?\)\s*/, "")
+          .trim();
+      };
+
+      /**
+       * The reusable card component.
+       * @param {object} card - The card data object.
+       * @returns {string} - The HTML string for a single card.
+       */
+      const createCardFrontComponent = card => `
+        <div class="card">
+          <div class="card-pane">
+            <div class="card-header">
+              <div class="card-title">${card.Area}</div>
+              <div class="card-title">${card.Title}</div>
+            </div>
+            <hr class="card-divider">
+            <div class="notes-section">
+              Notes:
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+              <hr class="card-divider">
+              <div class="notes-spacer"></div>
+            </div>
+          </div>
+          <div class="card-pane">
+            <img class="card-border-image" src="border.png"  alt=""/>
+            <div class="card-title">${card.Title}</div>
+            <hr class="card-divider">
+            <div class="card-content">
+              <div class="story-section">${card.Story}</div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      const createCardBackComponent = card => {
+        const acronym = getActionAcronym(card.Action);
+        const failText = processText(card.fail);
+        const failResult = getResult(card.fail);
+        const partialText = processText(card.partial);
+        const partialResult = getResult(card.partial);
+        const successText = processText(card.success);
+        const successResult = getResult(card.success);
+
+        return `
+          <div class="card-back">
+            <div class="action-check">Action: <span>${acronym}</span></div>
+            <hr class="card-divider">
+            <table class="results-table">
+              <tr>
+                <td>Fail</td>
+                <td>${failText}</td>
+                <td>${failResult}</td>
+              </tr>
+              <tr>
+                <td>Partial</td>
+                <td>${partialText}</td>
+                <td>${partialResult}</td>
+              </tr>
+              <tr>
+                <td>Success</td>
+                <td>${successText}</td>
+                <td>${successResult}</td>
+              </tr>
+            </table>
+          </div>
+        `;
+      }
+
+
+
+
+      /**
+       * Renders all cards into pages on window load.
+       */
+      window.addEventListener("load", () => {
+        const container = document.getElementById("card-container");
+        if (!container) return;
+
+        const cardsPerPage = 3;
+        let allPagesHtml = "";
+
+        for (let i = 0; i < cardData.length; i += cardsPerPage) {
+          const pageChunk = cardData.slice(i, i + cardsPerPage);
+
+          // Create the front-side of the cards
+          const frontCardsHtml = pageChunk.map(createCardFrontComponent).join("");
+          allPagesHtml += `<div class="page">${frontCardsHtml}</div>`;
+          // Create the back-side of the cards
+          const backCardsHtml = pageChunk.map(createCardBackComponent).join("");
+          allPagesHtml += `<div class="page">${backCardsHtml}</div>`;
+        }
+
+        container.innerHTML = allPagesHtml;
+      });
+    </script>
+  </body>
+</html>

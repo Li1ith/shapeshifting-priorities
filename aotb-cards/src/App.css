@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.card-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card-option {
+  background-color: #fdfdfa;
+  border: 2px solid #5a4f47;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.card-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-option h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-option p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #e0ddd7;
+  border: 1px solid #5a4f47;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: #d0cdc7;
+}

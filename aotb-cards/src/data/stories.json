@@ -1,0 +1,102 @@
+[
+  {
+    "Phase": "1",
+    "Area": "Any",
+    "Title": "Webs",
+    "Story": "You stretch out your hand to brush aside some cobwebs... but they cling",
+    "Action": "Str Check",
+    "fail": "Your stuck, the webs stick fast. You call for aid: (next player rolls too) [Blocked]",
+    "partial": "You twist & turn but can't break free. [Blocked]",
+    "success": "You pull free"
+  },
+  {
+    "Phase": "1",
+    "Area": "outside",
+    "Title": "Mists",
+    "Story": "Mist creeps in around you, you see shapes, no faces, is this an echo from the children?",
+    "Action": "Per Check",
+    "fail": "You run from the faces [move back 1 space]",
+    "partial": "You blink and their gone, wtf",
+    "success": "You realise the mist drifts away towards the woods"
+  },
+  {
+    "Phase": "1",
+    "Area": "Any",
+    "Title": "Voice",
+    "Story": "\"I'm beneath you, buried... HELP!\" you hear a voice wisper then scream. ",
+    "Action": "Wis Check",
+    "fail": "Your start clawing at the floor to free them. You shout for a shovel: (next player rolls too) [Blocked]",
+    "partial": "The screams become muffled, a flash of blue then silence.",
+    "success": "A flash of blue and the voice goes quiet, you find in loose dirt; a toy shovel, scratched on the handle Wynne"
+  },
+  {
+    "Phase": "1",
+    "Area": "Any",
+    "Title": "Dancing lights",
+    "Story": "In the distance, you catch a glance of dancing lights",
+    "Action": "Per Check",
+    "fail": "Must be a trick of the light, you check with your companions (next player rolls too) [Blocked]",
+    "partial": "They flit and float, so pretty.",
+    "success": "They seem to entice you into the woods"
+  },
+  {
+    "Phase": "1",
+    "Area": "Woodcutter",
+    "Title": "Lumberjack",
+    "Story": "He greets you with an axe raised and swinging.",
+    "Action": "Str Check",
+    "fail": "You dodge, but it glances your sholder [Take 1 damage]",
+    "partial": "you dodge, but watch out for the back hand. (next player rolls too)",
+    "success": "You dodge and he breaks down in tears, He's missing something, he wanted to protect"
+  },
+  {
+    "Phase": "1",
+    "Area": "School",
+    "Title": "Empty Desks",
+    "Story": "Dusty desks still messy with slate tablets and chalk... why does Elara not remember them",
+    "Action": "Wis Check",
+    "fail": "You pick up a tablet and see simple sums",
+    "partial": "So many doodles of mushroms ",
+    "success": "The drawings, all of them are mushroom circles"
+  },
+  {
+    "Phase": "1",
+    "Area": "School",
+    "Title": "Elara's Desk",
+    "Story": "A well worn desk, a scattering of lesson plans, a cold cup of tea",
+    "Action": "Per Check",
+    "fail": "How does Elara fill her days with no one to teach",
+    "partial": "A small red book in the drawer, filled with names and test scores.",
+    "success": "Under the mark book a well worn guide: Fae & protective wards"
+  },
+  {
+    "Phase": "1",
+    "Area": "Church",
+    "Title": "Stained Glass",
+    "Story": "Sunlight filters through ancient stained glass, depicting a forgotten saint.",
+    "Action": "Wis Check",
+    "fail": "The light blinds you, and you feel a sense of dread.",
+    "partial": "A single pane glows brighter, hinting at something hidden.",
+    "success": "You understand the saint's tale and a new path opens."
+  },
+  {
+    "Phase": "1",
+    "Area": "Church",
+    "Title": "Silent Gravestones",
+    "Story": "Rows of weathered gravestones stand in solemn silence.",
+    "Action": "Wis Check",
+    "fail": "The names blur, and you feel overwhelmed by sadness.",
+    "partial": "One gravestone seems to hum faintly, drawing your attention.",
+    "success": "You sense a lingering presence and gain a vital clue."
+  },
+  {
+    "Phase": "1",
+    "Area": "Bakery",
+    "Title": "Sweet treats",
+    "Story": "\"Hullo, let me get you an Iced bun on the house, I seem to have too many\" - Bill Baker",
+    "Action": "Per Check",
+    "fail": "You prefer savoury snacks and politely decline",
+    "partial": "You eat a sweet treat, it's very tasty",
+    "success": "\"Since I spotted them blue lights at night, I keep baking too many cakes\""
+  }
+]

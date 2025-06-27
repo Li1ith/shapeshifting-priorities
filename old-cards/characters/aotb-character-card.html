@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Cards for Printing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:wght@400;500;700&display=swap"
+    />
+    <link rel="stylesheet" href="aotb-character-card.css"/>
+  </head>
+  <body>
+    <div id="card-container"></div>
+
+    <script>
+      // Data source for character cards
+      let characterData = [];
+      fetch('characters.json')
+              .then(response => response.json())
+              .then(data => {
+                characterData = data;
+                // Trigger initial render after data is loaded
+                renderCards();
+              })
+              .catch(error => console.error('Error loading character data:', error));
+
+      /**
+       * Reusable character card component.
+       * @param {object} card - The character data object.
+       * @returns {string} - The HTML string for a single card.
+       */
+      const createCardComponent = card => {
+        const statsRows = card.Stats.map(
+          stat => `<tr><td>${stat[0]}</td><td>${stat[1]}</td></tr>`
+        ).join("");
+
+        return `
+                <div class="card">
+                    <div class="card-body">
+                        <div class="panel">
+                            <div class="description">${card.Description}</div>
+                            <div class="image-area"></div>
+                        </div>
+                        <div class="panel">
+                            <div class="card-header">
+                                <h2 class="card-role">${card.Role}</h2>
+                            </div>
+                            <div class="section">
+                                <div class="panel">
+                                    <div class="top-stats">
+                                        <div>
+                                            <div class="stat-label">Hit Points</div>
+                                            <div class="stat-value">${card.Health}</div>
+                                        </div>
+                                        <div style="background-color: #fff"></div>
+                                    </div>
+                                    <table class="stats-table">
+                                        <tbody>
+                                            ${statsRows}
+                                            <tr>
+                                                <td>Movement</td>
+                                                <td>${card.Movement}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="panel">
+                                    <div class="items-header">Items</div>
+                                    <div class="image-area"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+      };
+
+      /**
+       * Renders all cards into pages on window load.
+       */
+      function renderCards() {
+        const container = document.getElementById("card-container");
+        if (!container) return;
+
+        const cardsPerPage = 3;
+        let allPagesHtml = "";
+
+        for (let i = 0; i < characterData.length; i += cardsPerPage) {
+          const pageChunk = characterData.slice(i, i + cardsPerPage);
+          const pageCardsHtml = pageChunk.map(createCardComponent).join("");
+          allPagesHtml += `<div class="page">${pageCardsHtml}</div>`;
+        }
+
+        container.innerHTML = allPagesHtml;
+      }
+    </script>
+  </body>
+</html>

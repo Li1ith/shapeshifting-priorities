@@ -1,0 +1,79 @@
+[
+  {
+    "Role": "Warrior (Developer)",
+    "Health": 10,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+3"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+0"]
+    ],
+    "Description": "The backbone of the party, this disciplined warrior translates grand designs into tangible results with their trusty axe (keyboard). They fear no bug and can relentlessly refactor any monstrous legacy code into submission."
+  },
+  {
+    "Role": "Warrior (Developer)",
+    "Health": 10,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+3"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+0"]
+    ],
+    "Description": "A stalwart defender of the codebase, this warrior excels in close-quarters combat with complex algorithms. They stand on the front lines, tackling the gnarliest of tickets and protecting sprints from scope creep."
+  },
+  {
+    "Role": "Warrior (Developer)",
+    "Health": 10,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+3"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+0"]
+    ],
+    "Description": "A master of multiple weapons (programming languages), this versatile warrior adapts to any challenge. Whether it's a frontend skirmish or a backend siege, they charge in with confidence, leaving clean, efficient code in their wake."
+  },
+  {
+    "Role": "Ranger (QA/Tester)",
+    "Health": 6,
+    "Movement": 2,
+    "Stats": [
+      ["Strength (STR)", "+1"],
+      ["Perception (PER)", "+3"],
+      ["Wisdom (WIS)", "+0"]
+    ],
+    "Description": "With an eagle eye for detail, the Ranger stalks the wilds of the application, hunting for elusive bugs. No edge case can hide from their keen perception and meticulous test cases."
+  },
+  {
+    "Role": "Mage (Product Owner)",
+    "Health": 8,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+1"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+3"]
+    ],
+    "Description": "A weaver of visions and master of the arcane arts of requirement gathering. The Mage translates the chaotic needs of stakeholders into a clear, unified spellbook (product backlog) and shapes the very reality of the project."
+  },
+  {
+    "Role": "Mage (Product Owner)",
+    "Health": 8,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+1"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+3"]
+    ],
+    "Description": "This powerful mage scries into the future, divining the market's desires and the user's journey. With a wave of their staff (roadmap), they conjure epic features from thin air and guide the party's quest with unparalleled foresight."
+  },
+  {
+    "Role": "Cleric (Scrum Master)",
+    "Health": 10,
+    "Movement": 1,
+    "Stats": [
+      ["Strength (STR)", "+2"],
+      ["Perception (PER)", "+1"],
+      ["Wisdom (WIS)", "+1"]
+    ],
+    "Description": "The party's spiritual guide. The Cleric channels the divine energy of Agile to remove impediments, heal team conflicts, and ensure morale remains high. They are the keeper of the sacred rites (daily stand-ups, retrospectives)."
+  }
+]
