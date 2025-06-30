@@ -105,7 +105,7 @@ body {
 
 .notes-section {
   margin: 10px;
-  border: 2px dashed #ccc;
+  border: 2px dashed #5a4f47;;
   border-radius: 12px;
   font-size: 0.8em;
   color: #666;
@@ -134,30 +134,32 @@ body {
   color: #5a4f47;
 }
 
-.results-table {
+.results {
   width: 100%;
-  border-collapse: collapse;
   font-family: 'Libre Baskerville', serif;
-  font-size: 0.9em;
+  font-size: 1em;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
 }
 
-.results-table td {
-  border: 1px solid #e0ddd7;
+.result-item {
+  border: 2px solid #5a4f47;
   padding: 8px;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.results-table tr td:first-child {
+.result-label {
   font-weight: 700;
-  width: 15%;
   background-color: #f3f2ef;
 }
 
-.results-table tr td:last-child {
-  font-family: 'Libre Baskerville', serif;
-  width: 20%;
+.result-value  {
   text-align: center;
-  font-weight: 700;
+  font-weight: bold;
   color: #5a4f47;
 }
 

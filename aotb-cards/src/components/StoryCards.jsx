@@ -24,23 +24,9 @@ const StoryCards = () => {
     return match ? match[1].toUpperCase() : '';
   };
 
-  // Extracts the result from the text (bracketed content or 'B' for Blocked).
-  const getResult = (text) => {
-    if (!text) return '';
-    const bracketMatch = text.match(/\[(.*?)\]|\((.*?)\)/);
-    if (bracketMatch) {
-      return (bracketMatch[1] || bracketMatch[2] || '').trim();
-    }
-    return '';
-  };
-
-  // Removes the result part from the text to clean it up for display.
-  const processText = (text) => {
-    if (!text) return '';
-    return text
-      .replace(/\s*B\s*$/, '')
-      .replace(/\s*\[.*?\]\s*|\s*\(.*?\)\s*/, '')
-      .trim();
+  const parseActionText = (text) => {
+    if (!text) return [];
+    return text.split('|');
   };
 
   /**
@@ -93,38 +79,47 @@ const StoryCards = () => {
    */
   const StoryBack = ({ story }) => {
     const acronym = getActionAcronym(story.Action);
-    const failText = processText(story.fail);
-    const failResult = getResult(story.fail);
-    const partialText = processText(story.partial);
-    const partialResult = getResult(story.partial);
-    const successText = processText(story.success);
-    const successResult = getResult(story.success);
-
     return (
       <div className="story-back">
         <div className="action-check">
           Roll your dice and add your <span>{acronym}</span> modifier
         </div>
         <hr className="story-divider" />
-        <table className="results-table">
-          <tbody>
-            <tr>
-              <td>Fail</td>
-              <td>{failText}</td>
-              <td>{failResult}</td>
-            </tr>
-            <tr>
-              <td>Partial</td>
-              <td>{partialText}</td>
-              <td>{partialResult}</td>
-            </tr>
-            <tr>
-              <td>Success</td>
-              <td>{successText}</td>
-              <td>{successResult}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="results">
+          <div className="result-item">
+            <div className="result-label">
+              Obstacles <strong>&lt;{story.Fail}</strong>
+            </div>
+            <div className="result-text">{story.FailText}</div>
+            {parseActionText(story.FailAction).map((action, idx) => (
+              <div key={'fail-' + idx} className="result-value">
+                {action}
+              </div>
+            ))}
+          </div>
+          <div className="result-item">
+            <div className="result-label">
+              Progress <strong>&lt;{story.Partial}</strong>
+            </div>
+            <div className="result-text">{story.PartialText}</div>
+            {parseActionText(story.PartialAction).map((action, idx) => (
+              <div key={'partial-' + idx} className="result-value">
+                {action}
+              </div>
+            ))}
+          </div>
+          <div className="result-item">
+            <div className="result-label">
+              Victory <strong>&gt;= {story.Success}</strong>
+            </div>
+            <div className="result-text">{story.SuccessText}</div>
+            {parseActionText(story.SuccessAction).map((action, idx) => (
+              <div key={'success-' + idx} className="result-value">
+                {action}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   };
