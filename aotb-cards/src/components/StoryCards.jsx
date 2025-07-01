@@ -39,8 +39,8 @@ const StoryCards = () => {
       <div className="story">
         <div className="story-front-left">
           <div className="story-header">
-            <div className="story-title">{story.Area}</div>
-            <div className="story-title">{story.Title}</div>
+            <div className="story-subtitle">{story.Area}</div>
+            <div className="story-subtitle">{story.Title}</div>
           </div>
           <div className="notes-section">
             Notes:
@@ -80,53 +80,58 @@ const StoryCards = () => {
   const StoryBack = ({ story }) => {
     const acronym = getActionAcronym(story.Action);
     return (
-      <div
-        className="story-back"
-        style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/Corners/Corner_${story.Phase}.png)`,
-          backgroundPosition: 'left bottom',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '300px',
-        }}
-      >
+      <div className="story-back">
         <div className="action-check">
           Roll your dice and add your <span>{acronym}</span> modifier
         </div>
         <hr className="story-divider" />
         <div className="results">
-          <div className="result-item">
-            <div className="result-label">
-              Obstacles <strong>&lt;{story.Fail}</strong>
-            </div>
-            <div className="result-text">{story.FailText}</div>
-            {parseActionText(story.FailAction).map((action, idx) => (
-              <div key={'fail-' + idx} className="result-value">
-                {action}
+          <div className="result-cell">
+            <div className="result-item">
+              <div className="result-label" style={{ backgroundColor: 'rgba(183,65,65,0.7)' }}>
+                Obstacles <strong>&lt; {story.Fail}</strong>
               </div>
-            ))}
-          </div>
-          <div className="result-item">
-            <div className="result-label">
-              Progress <strong>&lt;{story.Partial}</strong>
+              <div className="result-text">{story.FailText}</div>
+              {parseActionText(story.FailAction).map((action, idx) => (
+                <div key={'fail-' + idx} className="result-value">
+                  {action}
+                </div>
+              ))}
             </div>
-            <div className="result-text">{story.PartialText}</div>
-            {parseActionText(story.PartialAction).map((action, idx) => (
-              <div key={'partial-' + idx} className="result-value">
-                {action}
-              </div>
-            ))}
+            <div className="story-divider-vertical" />
           </div>
-          <div className="result-item">
-            <div className="result-label">
-              Victory <strong>&gt;= {story.Success}</strong>
+          <div className="result-cell">
+            <div className="result-item">
+              <div className="result-label" style={{ backgroundColor: 'rgba(255,206,96,0.87)' }}>
+                Progress <strong>&lt; {story.Partial}</strong>
+              </div>
+              <div className="result-text">{story.PartialText}</div>
+              {parseActionText(story.PartialAction).map((action, idx) => (
+                <div key={'partial-' + idx} className="result-value">
+                  {action}
+                </div>
+              ))}
             </div>
-            <div className="result-text">{story.SuccessText}</div>
-            {parseActionText(story.SuccessAction).map((action, idx) => (
-              <div key={'success-' + idx} className="result-value">
-                {action}
-              </div>
-            ))}
+            <div className="story-divider-vertical" />
           </div>
+          <div className="result-cell">
+            <div className="result-item">
+              <div className="result-label" style={{ backgroundColor: 'rgba(201,252,83,0.7)' }}>
+                Victory <strong>&gt;= {story.Success}</strong>
+              </div>
+              <div className="result-text">{story.SuccessText}</div>
+              {parseActionText(story.SuccessAction).map((action, idx) => (
+                <div key={'success-' + idx} className="result-value">
+                  {action}
+                </div>
+              ))}
+            </div>
+          </div>
+          <img
+            className="story-back-image-l"
+            src={`${process.env.PUBLIC_URL}/Corners/Corner_${story.Phase}.png`}
+            alt=""
+          />
         </div>
       </div>
     );

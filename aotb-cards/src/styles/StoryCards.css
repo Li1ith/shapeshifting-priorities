@@ -65,7 +65,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 4px 16px;
 }
 
 .story-title {
@@ -73,16 +73,31 @@ body {
   font-weight: 900;
   font-size: 2em;
   text-align: center;
-  margin: 5px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.story-subtitle {
+  font-family: 'Bilbo Swash Caps', serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 
 .story-divider {
   border: 0;
-  height: 1px;
+  height: 2px;
   background-color: #5a4f47;
   margin: 8px 0;
+}
+
+.story-divider-vertical {
+  border: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #5a4f47;
 }
 
 .story-content {
@@ -126,6 +141,12 @@ body {
   box-sizing: border-box;
 }
 
+.story-back-image-l {
+  width: 350px;
+  z-index: 100;
+  translate: -16px -287px;
+}
+
 .action-check {
   font-family: 'Libre Baskerville', serif;
   font-size: 1.1em;
@@ -135,36 +156,54 @@ body {
 
 .action-check span {
   font-weight: 700;
-  color: #5a4f47;
 }
 
 .results {
   width: 100%;
+  height: 60mm;
   font-family: 'Libre Baskerville', serif;
   font-size: 1em;
   font-weight: 400;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(1, 1fr);
+  grid-template-rows: 1fr 0.01fr;
+
+}
+
+.result-cell {
+  background-color: #fdfdfa;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  align-self: start;
+  justify-self: start;
 }
 
 .result-item {
-  border: 2px solid #5a4f47;
+  background-color: #fdfdfa;
   padding: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .result-label {
   font-weight: 700;
-  background-color: #f3f2ef;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.result-text {
+  padding: 8px 4px;
 }
 
 .result-value  {
   text-align: center;
-  font-weight: bold;
-  color: #5a4f47;
+  font-weight: 700;
+  color: rgb(188, 110, 226);
+  padding: 4px;
 }
 
 /* Print-specific styles */
