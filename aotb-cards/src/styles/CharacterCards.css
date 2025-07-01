@@ -34,8 +34,10 @@ body {
   overflow: hidden;
 }
 
-.card-header {
+.card-header {display: flex;
+  flex-direction: row;
   background-color: #e0ddd7;
+  justify-content: space-between;
   padding: 4mm;
   text-align: center;
   border-bottom: 2px solid #5a4f47;
@@ -110,6 +112,7 @@ body {
 }
 
 .stats-table td {
+  font-family: 'Libre Baskerville', serif;
   border: 1px solid #e0ddd7;
   padding: 8px;
   font-size: 1em;

@@ -36,6 +36,7 @@ const CharacterCards = () => {
           <div className="panel">
             <div className="card-header">
               <h2 className="card-role">{card.Role}</h2>
+              <h2 className="card-role">Movement: {card.Movement} squares</h2>
             </div>
             <div className="section">
               <div className="panel">
@@ -44,16 +45,37 @@ const CharacterCards = () => {
                     <div className="stat-label">Hit Points</div>
                     <div className="stat-value">{card.Health}</div>
                   </div>
-                  <div style={{ backgroundColor: '#fff' }}></div>
+                  <div style={{ display: 'flex', gap: '4px' }}>
+                    <div
+                      style={{
+                        width: '16px',
+                        height: '100%',
+                        backgroundColor: 'white',
+                        border: '1px solid #ccc',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <span style={{ color: '#ccc' }}>✕</span>
+                    </div>
+                    <div
+                      style={{
+                        width: '16px',
+                        backgroundColor: 'white',
+                        height: '100%',
+                        border: '1px solid #ccc',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <span style={{ color: '#ccc' }}>✕</span>
+                    </div>
+                  </div>
                 </div>
                 <table className="stats-table">
-                  <tbody>
-                    {statsRows}
-                    <tr>
-                      <td>Movement</td>
-                      <td>{card.Movement}</td>
-                    </tr>
-                  </tbody>
+                  <tbody>{statsRows}</tbody>
                 </table>
               </div>
               <div className="panel">

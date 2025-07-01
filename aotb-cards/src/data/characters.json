@@ -1,8 +1,8 @@
 [
   {
     "Role": "Warrior (Developer)",
-    "Health": 10,
-    "Movement": 1,
+    "Health": 2,
+    "Movement": 3,
     "Stats": [
       ["Strength (STR)", "+3"],
       ["Perception (PER)", "+1"],
@@ -12,8 +12,8 @@
   },
   {
     "Role": "Warrior (Developer)",
-    "Health": 10,
-    "Movement": 1,
+    "Health": 2,
+    "Movement": 3,
     "Stats": [
       ["Strength (STR)", "+3"],
       ["Perception (PER)", "+1"],
@@ -23,8 +23,8 @@
   },
   {
     "Role": "Warrior (Developer)",
-    "Health": 10,
-    "Movement": 1,
+    "Health": 2,
+    "Movement": 3,
     "Stats": [
       ["Strength (STR)", "+3"],
       ["Perception (PER)", "+1"],
@@ -34,8 +34,8 @@
   },
   {
     "Role": "Ranger (QA/Tester)",
-    "Health": 6,
-    "Movement": 2,
+    "Health": 2,
+    "Movement": 6,
     "Stats": [
       ["Strength (STR)", "+1"],
       ["Perception (PER)", "+3"],
@@ -45,8 +45,8 @@
   },
   {
     "Role": "Mage (Product Owner)",
-    "Health": 8,
-    "Movement": 1,
+    "Health":2,
+    "Movement": 5,
     "Stats": [
       ["Strength (STR)", "+1"],
       ["Perception (PER)", "+1"],
@@ -55,20 +55,9 @@
     "Description": "A weaver of visions and master of the arcane arts of requirement gathering. The Mage translates the chaotic needs of stakeholders into a clear, unified spellbook (product backlog) and shapes the very reality of the project."
   },
   {
-    "Role": "Mage (Product Owner)",
-    "Health": 8,
-    "Movement": 1,
-    "Stats": [
-      ["Strength (STR)", "+1"],
-      ["Perception (PER)", "+1"],
-      ["Wisdom (WIS)", "+3"]
-    ],
-    "Description": "This powerful mage scries into the future, divining the market's desires and the user's journey. With a wave of their staff (roadmap), they conjure epic features from thin air and guide the party's quest with unparalleled foresight."
-  },
-  {
     "Role": "Cleric (Scrum Master)",
-    "Health": 10,
-    "Movement": 1,
+    "Health": 2,
+    "Movement": 4,
     "Stats": [
       ["Strength (STR)", "+2"],
       ["Perception (PER)", "+1"],
