@@ -203,7 +203,7 @@
     "PartialText": "You ask who was taken, he can't remember",
     "PartialAction": "",
     "Partial": 15,
-    "SuccessText": "You notice a map on his table with a large circle drawn around the Karn in the woods.",
+    "SuccessText": "You notice a map on his table with a large circle drawn around the Cairn in the woods.",
     "SuccessAction": "",
     "Success": 16
   },
@@ -769,7 +769,7 @@
   },
   {
     "Phase": 4,
-    "Area": "Forest - Karn",
+    "Area": "Forest - Cairn",
     "Title": "Loose Stones",
     "Story": "The ancient pile of stones seems unstable.",
     "Action": "Str Check",
@@ -785,7 +785,7 @@
   },
   {
     "Phase": 4,
-    "Area": "Forest - Karn",
+    "Area": "Forest - Cairn",
     "Title": "Whispering Wind",
     "Story": "The wind whispers secrets as it passes through the stones.",
     "Action": "Per Check",
