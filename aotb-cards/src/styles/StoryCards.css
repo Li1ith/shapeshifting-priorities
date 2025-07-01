@@ -117,8 +117,12 @@ body {
 
 /* Story Back Styling */
 .story-back {
+  height: 80mm !important;
+  border: 2px solid #5a4f47;
+  border-radius: 8px;
+  background-color: #fdfdfa;
+  overflow: hidden;
   padding: 10px;
-  height: 100%;
   box-sizing: border-box;
 }
 
