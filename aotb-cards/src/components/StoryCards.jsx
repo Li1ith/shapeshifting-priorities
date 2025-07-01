@@ -128,7 +128,7 @@ const StoryCards = () => {
             </div>
           </div>
           <img
-            className="story-back-image-l"
+            className="story-back-image"
             src={`${process.env.PUBLIC_URL}/Corners/Corner_${story.Phase}.png`}
             alt=""
           />

@@ -141,10 +141,10 @@ body {
   box-sizing: border-box;
 }
 
-.story-back-image-l {
-  width: 350px;
+.story-back-image {
+  width: 225px;
   z-index: 100;
-  translate: -16px -287px;
+  translate: -20px -142px;
 }
 
 .action-check {
@@ -160,7 +160,7 @@ body {
 
 .results {
   width: 100%;
-  height: 60mm;
+  height: 62mm;
   font-family: 'Libre Baskerville', serif;
   font-size: 1em;
   font-weight: 400;
@@ -175,7 +175,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  height: 100%;
+  height: 60mm;
   align-self: start;
   justify-self: start;
 }
