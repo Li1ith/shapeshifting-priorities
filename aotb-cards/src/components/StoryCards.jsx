@@ -54,8 +54,6 @@ const StoryCards = () => {
             <div className="notes-spacer"></div>
             <hr className="story-divider" />
             <div className="notes-spacer"></div>
-            <hr className="story-divider" />
-            <div className="notes-spacer"></div>
           </div>
         </div>
         <div className="story-front-right">

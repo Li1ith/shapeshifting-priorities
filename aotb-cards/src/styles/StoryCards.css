@@ -25,12 +25,12 @@ body {
 /* Story Styling */
 .story {
   height: 80mm !important;
-  border: 2px solid #5a4f47;
+  /*border: 2px solid #5a4f47;*/
   border-radius: 8px;
   display: flex;
   flex-direction: row;
+  padding: 10px;
   box-sizing: border-box;
-  background-color: #fdfdfa;
   overflow: hidden;
 }
 
@@ -132,9 +132,8 @@ body {
 /* Story Back Styling */
 .story-back {
   height: 80mm !important;
-  border: 2px solid #5a4f47;
+  /*border: 2px solid #5a4f47;*/
   border-radius: 8px;
-  background-color: #fdfdfa;
   overflow: hidden;
   padding: 10px;
   box-sizing: border-box;
@@ -169,7 +168,7 @@ body {
 }
 
 .result-cell {
-  background-color: #fdfdfa;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -180,7 +179,6 @@ body {
 }
 
 .result-item {
-  background-color: #fdfdfa;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -214,12 +212,23 @@ body {
     padding: 0;
   }
   .page {
-    width: 297mm;
-    height: 210mm;
+    width: 290mm;
+    height: 200mm;
     margin: 0;
     box-shadow: none;
     border: none;
     page-break-after: always;
+    padding: 10mm;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10mm;
+    box-sizing: border-box;
+  }
+
+  .page:nth-of-type(odd) {
+    margin-top: -5mm;
   }
 
   .no-print {
