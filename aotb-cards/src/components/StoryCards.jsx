@@ -80,7 +80,15 @@ const StoryCards = () => {
   const StoryBack = ({ story }) => {
     const acronym = getActionAcronym(story.Action);
     return (
-      <div className="story-back">
+      <div
+        className="story-back"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/Corners/Corner_${story.Phase}.png)`,
+          backgroundPosition: 'left bottom',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '300px',
+        }}
+      >
         <div className="action-check">
           Roll your dice and add your <span>{acronym}</span> modifier
         </div>
