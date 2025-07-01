@@ -43,7 +43,6 @@ body {
 .story-front-right {
   flex: 1;
   position: relative;
-
 }
 
 .story-border-image {
@@ -69,7 +68,7 @@ body {
 }
 
 .story-title {
-  font-family: 'Bilbo Swash Caps', serif;
+  font-family: 'Bilbo', cursive;
   font-weight: 900;
   font-size: 2em;
   text-align: center;
@@ -78,7 +77,7 @@ body {
 }
 
 .story-subtitle {
-  font-family: 'Bilbo Swash Caps', serif;
+  font-family: 'Bilbo', cursive;
   font-weight: 400;
   font-size: 1.2em;
   text-align: center;
@@ -95,16 +94,16 @@ body {
 
 .story-divider-vertical {
   border: 0;
-  width: 2px;
+  width: 1px;
   height: 100%;
   background-color: #5a4f47;
 }
 
 .story-content {
-  font-family: "Bilbo", cursive;
+  font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.2em;
+  font-size: 1em;
   position: relative;
   z-index: 1;
   height: calc(100% - 50px);
@@ -120,7 +119,7 @@ body {
 
 .notes-section {
   margin: 10px;
-  border: 2px dashed #5a4f47;;
+  border: 2px dashed #5a4f47;
   border-radius: 12px;
   font-size: 0.8em;
   color: #666;
@@ -167,7 +166,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 0.01fr;
-
 }
 
 .result-cell {
@@ -176,6 +174,7 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   height: 60mm;
+  width: 230px;
   align-self: start;
   justify-self: start;
 }
@@ -187,6 +186,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   height: 100%;
+  width: 100%;
 }
 
 .result-label {
@@ -199,7 +199,7 @@ body {
   padding: 8px 4px;
 }
 
-.result-value  {
+.result-value {
   text-align: center;
   font-weight: 700;
   color: rgb(188, 110, 226);
