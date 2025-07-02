@@ -56,8 +56,13 @@ body {
 }
 
 .story-border-content {
-  height: 100%;
-  padding: 75px 60px 20px;
+  height: calc(100% - 98px);
+  padding: 68px 55px 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .story-header {
@@ -70,7 +75,7 @@ body {
 .story-title {
   font-family: 'Bilbo', cursive;
   font-weight: 900;
-  font-size: 2em;
+  font-size: 1.75em;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -89,7 +94,7 @@ body {
   border: 0;
   height: 2px;
   background-color: #5a4f47;
-  margin: 8px 0;
+  margin: 2px 0;
 }
 
 .story-divider-vertical {
@@ -99,29 +104,32 @@ body {
   background-color: #5a4f47;
 }
 
-.story-content {
+.story-section {
   font-family: 'Libre Baskerville', serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1em;
-  position: relative;
-  z-index: 1;
-  height: calc(100% - 50px);
   overflow: hidden;
+  flex-grow: 1;
 }
 
-.story-section {
-  line-height: 1.4;
-  padding: 5px;
-  height: 100%;
-  overflow: hidden;
+.story-outcome {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 180px
 }
 
 .notes-section {
   margin: 10px;
   border: 2px dashed #5a4f47;
   border-radius: 12px;
-  font-size: 0.8em;
+  font-size: 1em;
   color: #666;
 }
 
@@ -137,12 +145,6 @@ body {
   overflow: hidden;
   padding: 10px;
   box-sizing: border-box;
-}
-
-.story-back-image {
-  width: 225px;
-  z-index: 100;
-  translate: -20px -142px;
 }
 
 .action-check {
@@ -168,7 +170,6 @@ body {
 }
 
 .result-cell {
-
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -188,13 +189,14 @@ body {
 }
 
 .result-label {
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 4px;
+  font-weight: 400;
+  border-radius: 16px;
+  padding: 8px;
 }
 
 .result-text {
   padding: 8px 4px;
+  height: 32mm;
 }
 
 .result-value {

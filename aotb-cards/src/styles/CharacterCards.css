@@ -164,4 +164,8 @@ body {
     border: none;
     page-break-after: always;
   }
+
+  .no-print {
+    display: none;
+  }
 }

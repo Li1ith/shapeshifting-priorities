@@ -110,13 +110,15 @@ const CharacterCards = () => {
   };
 
   return (
-    <div>
-      <Link to="/" className="back-link">
-        Back to Home
-      </Link>
-      <h1 className="title">Character Cards</h1>
+    <>
+      <div className="no-print">
+        <Link to="/" className="back-link">
+          Back to Home
+        </Link>
+        <h1 className="title">Character Cards</h1>
+      </div>
       <div id="card-container">{renderCards()}</div>
-    </div>
+    </>
   );
 };
 

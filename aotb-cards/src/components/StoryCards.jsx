@@ -9,8 +9,10 @@ const StoryCards = () => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    // Set the story data
-    setStories(storyData);
+    // Sort story data alphabetically by Area
+    const sortedStories = [...storyData].sort((a, b) => a.Area.localeCompare(b.Area));
+
+    setStories(sortedStories);
   }, []);
 
   /**
@@ -25,8 +27,29 @@ const StoryCards = () => {
   };
 
   const parseActionText = (text) => {
-    if (!text) return [];
-    return text.split('|');
+    if (!text) return ['Completed'];
+    const actions = text.split('|');
+    if (actions.length === 1 && actions[0].trim() === '') {
+      return ['Completed'];
+    }
+    const trimmedActions = actions.map((action) => action.trim()).filter((action) => action !== '');
+    if (!trimmedActions.some((action) => action.includes('Blocked'))) {
+      trimmedActions.push('Completed');
+    }
+    return trimmedActions;
+  };
+
+  const getOutcome = (story) => {
+    const outcomes = [story.FailAction, story.PartialAction, story.SuccessAction];
+    for (const outcome of outcomes) {
+      if (!outcome) continue;
+      if (outcome.toLowerCase().includes('damage')) {
+        return <div style={{ color: 'red' }}>Damage</div>;
+      } else if (outcome.toLowerCase().includes('item')) {
+        return <div style={{ color: 'purple' }}>Item</div>;
+      }
+    }
+    return <div style={{ color: 'blue' }}>Clue</div>;
   };
 
   /**
@@ -35,12 +58,13 @@ const StoryCards = () => {
    * @returns {JSX.Element} - The JSX for a single story front.
    */
   const StoryFront = ({ story }) => {
+    const acronym = getActionAcronym(story.Action);
+    const out = getOutcome(story);
     return (
       <div className="story">
         <div className="story-front-left">
           <div className="story-header">
-            <div className="story-subtitle">{story.Area}</div>
-            <div className="story-subtitle">{story.Title}</div>
+            <div className="story-title">{story.Area}</div>
           </div>
           <div className="notes-section">
             Notes:
@@ -60,9 +84,11 @@ const StoryCards = () => {
           <img className="story-border-image" src={process.env.PUBLIC_URL + '/border.png'} alt="" />
           <div className="story-border-content">
             <div className="story-title">{story.Title}</div>
-            <hr className="story-divider" />
-            <div className="story-content">
-              <div className="story-section">{story.Story}</div>
+            <div className="story-divider" />
+            <div className="story-section">{story.Story}</div>
+            <div className="story-outcome">
+              {out}
+              <div>Roll {acronym}</div>
             </div>
           </div>
         </div>
@@ -87,7 +113,7 @@ const StoryCards = () => {
           <div className="result-cell">
             <div className="result-item">
               <div className="result-label" style={{ backgroundColor: 'rgba(183,65,65,0.7)' }}>
-                Obstacles <strong>&lt; {story.Fail}</strong>
+                Obstacles ≤ {story.Fail}
               </div>
               <div className="result-text">{story.FailText}</div>
               {parseActionText(story.FailAction).map((action, idx) => (
@@ -101,7 +127,7 @@ const StoryCards = () => {
           <div className="result-cell">
             <div className="result-item">
               <div className="result-label" style={{ backgroundColor: 'rgba(255,206,96,0.87)' }}>
-                Progress <strong>&lt; {story.Partial}</strong>
+                {story.Fail} &lt; Progress ≤ {story.Partial}
               </div>
               <div className="result-text">{story.PartialText}</div>
               {parseActionText(story.PartialAction).map((action, idx) => (
@@ -115,7 +141,7 @@ const StoryCards = () => {
           <div className="result-cell">
             <div className="result-item">
               <div className="result-label" style={{ backgroundColor: 'rgba(201,252,83,0.7)' }}>
-                Victory <strong>&gt;= {story.Success}</strong>
+                {story.Success} &lt; Victory
               </div>
               <div className="result-text">{story.SuccessText}</div>
               {parseActionText(story.SuccessAction).map((action, idx) => (
@@ -125,11 +151,6 @@ const StoryCards = () => {
               ))}
             </div>
           </div>
-          <img
-            className="story-back-image"
-            src={`${process.env.PUBLIC_URL}/Corners/Corner_${story.Phase}.png`}
-            alt=""
-          />
         </div>
       </div>
     );
@@ -175,6 +196,9 @@ const StoryCards = () => {
           Back to Home
         </Link>
         <h1 className="title">Story Cards</h1>
+        <button onClick={() => navigator.clipboard.writeText(JSON.stringify(stories, null, 2))}>
+          Copy JSON
+        </button>
       </div>
       <div id="story-container">{renderStories()}</div>
     </>
