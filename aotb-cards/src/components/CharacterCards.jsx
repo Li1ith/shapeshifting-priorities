@@ -27,11 +27,10 @@ const CharacterCards = () => {
     ));
 
     return (
-      <div className="card">
+      <div className="card" key={card.Name}>
         <div className="card-body">
           <div className="panel">
             <div className="description">{card.Description}</div>
-            <div className="image-area"></div>
           </div>
           <div className="panel">
             <div className="card-header">
@@ -80,11 +79,16 @@ const CharacterCards = () => {
               </div>
               <div className="panel">
                 <div className="items-header">Items</div>
-                <div className="image-area"></div>
+                <div className="items-area"></div>
               </div>
             </div>
           </div>
         </div>
+        <img
+          className="corner-image"
+          src={`${process.env.PUBLIC_URL}/Corners/Corner_3.png`}
+          alt=""
+        />
       </div>
     );
   };

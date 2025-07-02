@@ -26,6 +26,9 @@ const Wrappers = () => {
 
     // Sort wrappers by phase
     const sortedWrappers = wrapperObjects.sort((a, b) => a.phase - b.phase);
+
+    // Add two item wrappers for the last page
+    sortedWrappers.push({ text: '- Items', phase: 6 }, { text: '- Items', phase: 6 });
     setWrappers(sortedWrappers);
   }, []);
 
