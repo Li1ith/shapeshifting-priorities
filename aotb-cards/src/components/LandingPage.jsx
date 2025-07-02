@@ -17,6 +17,11 @@ const LandingPage = () => {
           <h2>Story Cards</h2>
           <p>View and print story cards for your game</p>
         </Link>
+
+        <Link to="/wrappers" className="card-option">
+          <h2>Wrapper Cards</h2>
+          <p>View and print card wrappers for your game</p>
+        </Link>
       </div>
     </div>
   );

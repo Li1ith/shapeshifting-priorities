@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+  background-color: #f0f0f0;
+  font-family: 'Bilbo', cursive;
+  margin: 0;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page Layout for A4 Printing */
+.page {
+  width: 210mm !important;
+  height: 297mm !important;
+  padding: 10mm;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10mm;
+  box-sizing: border-box;
+}
+
+/* wrapper Styling */
+.wrapper {
+  height: 80mm !important;
+  /*border: 2px solid #5a4f47;*/
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+}
+
+.wrapper-back-image {
+  width: 300px;
+  z-index: 100;
+  transform: rotate(90deg);
+  translate: 0 -16px;
+  margin-right: -172px;
+}
+
+.wrapper-title {
+  font-family: 'Bilbo', cursive;
+  font-weight: 900;
+  font-size: 4em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding-top: 52px;
+}
+
+.wrapper-subtitle {
+  font-family: 'Bilbo', cursive;
+  font-weight: 400;
+  font-size: 2.5em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Print-specific styles */
+@media print {
+  body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .page {
+    width: 290mm;
+    height: 200mm;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    page-break-after: always;
+    padding: 10mm;
+    background: white;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10mm;
+    box-sizing: border-box;
+  }
+
+  .page:nth-of-type(odd) {
+    margin-top: -5mm;
+  }
+
+  .no-print {
+    display: none;
+  }
+}

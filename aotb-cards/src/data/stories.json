@@ -1,7 +1,7 @@
 [
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "Circle Dance",
     "Story": "A ring of lights sways around you. You’re not invited.",
     "Action": "Wis Check",
@@ -17,7 +17,7 @@
   },
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "Wisp Trap",
     "Story": "Several wisps form a triangle around you. Coincidence? No.",
     "Action": "Wis Check",
@@ -33,7 +33,7 @@
   },
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "Lights in the Fog",
     "Story": "Dozens of tiny lights flicker inside the mist.",
     "Action": "Per Check",
@@ -49,7 +49,7 @@
   },
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "The Dare",
     "Story": "A wisp waits. Close enough to touch, if you dare?",
     "Action": "Str Check",
@@ -65,7 +65,7 @@
   },
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "Looping Trail",
     "Story": "You keep seeing the same wisp. Same rock. Same moss.",
     "Action": "Wis Check",
@@ -81,7 +81,7 @@
   },
   {
     "Phase": 5,
-    "Area": "Ancient Glade - Backlog",
+    "Area": "Ancient Forest - Backlog",
     "Title": "Too Many",
     "Story": "One wisp splits into two. Then four.",
     "Action": "Wis Check",
@@ -97,7 +97,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Lantern's Song",
     "Story": "Her lantern hums a lullaby that pulls at memories you don’t want to remember.",
     "Action": "Wis Check",
@@ -113,7 +113,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Flickering Form",
     "Story": "She shifts between a crone, a mother, and a little girl. All weeping.",
     "Action": "Per Check",
@@ -129,7 +129,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Memory Mire",
     "Story": "The mushrooms release spores. You forget why you came.",
     "Action": "Wis Check",
@@ -145,7 +145,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Stolen Giggle",
     "Story": "You hear a child laugh behind you.",
     "Action": "Per Check",
@@ -161,7 +161,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Shatter the Light",
     "Story": "She raises the lantern. Inside, something screams silently.",
     "Action": "Str Check",
@@ -177,7 +177,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Lantern's Song",
     "Story": "Her lantern hums a lullaby that pulls at memories you don’t want to remember.",
     "Action": "Wis Check",
@@ -193,7 +193,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Flickering Form",
     "Story": "She shifts between a crone, a mother, and a maiden. All weeping.",
     "Action": "Per Check",
@@ -209,7 +209,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Lantern's Song",
     "Story": "Her lantern hums a lullaby that pulls at memories you don’t want to remember.",
     "Action": "Wis Check",
@@ -225,7 +225,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Flickering Form",
     "Story": "She shifts between a crone, a mother, and a maiden. All weeping.",
     "Action": "Per Check",
@@ -241,7 +241,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Furious Lunge",
     "Story": "The Matron lets out a piercing shriek and lunges forward, an angry light shines from the lantern",
     "Action": "Str Check",
@@ -257,7 +257,7 @@
   },
   {
     "Phase": 6,
-    "Area": "Ancient Glade - Grove",
+    "Area": "Ancient Forest - Glade",
     "Title": "Shatter the Light",
     "Story": "She raises the lantern. Inside, something screams silently.",
     "Action": "Str Check",
@@ -289,17 +289,17 @@
   },
   {
     "Phase": 3,
-    "Area": "Forest - Backlog",
+    "Area": "Forest - Ancient Tree",
     "Title": "Glowing Giggle",
     "Story": "A small blue orb dances ahead, chuckling just as you trip on a root.",
     "Action": "Per Check",
     "FailText": "You fall flat. It laughs harder.",
-    "FailAction": "Blocked",
+    "FailAction": "Take 1 damage|Blocked",
     "Fail": 10,
     "PartialText": "You stagger after it. Your pride is left behind.",
     "PartialAction": "",
     "Partial": 15,
-    "SuccessText": "You catch up and see it vanish behind a tree, leaving a faint trail, deeper into the woods.",
+    "SuccessText": "You catch up as it vanishes behind the ancient tree, leaving a faint trail, deeper into the forest.",
     "SuccessAction": "",
     "Success": 15
   },
@@ -353,7 +353,7 @@
   },
   {
     "Phase": 4,
-    "Area": "Forest - Backlog",
+    "Area": "Forest - Fork",
     "Title": "Voice of a Friend",
     "Story": "A light appears—speaking in a trusted voice.",
     "Action": "Wis Check",
@@ -731,7 +731,7 @@
     "PartialText": "You blink and their gone, wtf.",
     "PartialAction": "",
     "Partial": 13,
-    "SuccessText": "You realise the mist drifts away towards the woods.",
+    "SuccessText": "You realise the mist drifts away towards the forest.",
     "SuccessAction": "",
     "Success": 13
   },
@@ -763,7 +763,7 @@
     "PartialText": "They flit and float, so pretty.",
     "PartialAction": "",
     "Partial": 13,
-    "SuccessText": "They seem to entice you into the woods.",
+    "SuccessText": "They seem to entice you into the forest.",
     "SuccessAction": "",
     "Success": 13
   },
@@ -787,7 +787,7 @@
     "Phase": 2,
     "Area": "Village - Bakery",
     "Title": "Sweet treats",
-    "Story": "Hullo, let me get you an Iced bun on the house, I seem to have too many\" - Bill Baker.",
+    "Story": "\"Hullo, let me get you an Iced bun on the house, I seem to have too many\" - Bill Baker.",
     "Action": "Per Check",
     "FailText": "You prefer savoury snacks and politely decline.",
     "FailAction": "",
@@ -797,6 +797,22 @@
     "Partial": 13,
     "SuccessText": "Since I spotted them blue lights at night, I keep baking too many cakes",
     "SuccessAction": "",
+    "Success": 13
+  },
+  {
+    "Phase": 2,
+    "Area": "Village - Bakery",
+    "Title": "Stuck Millstone",
+    "Story": "Bill points to the heavy millstone. \"It's jammed\" he says, wiping sweat from his brow.",
+    "Action": "Str Check",
+    "FailText": "You put your shoulder into it, but the stone doesn't move. You pull a muscle for your trouble.",
+    "FailAction": "Take 1 damage|Blocked",
+    "Fail": 8,
+    "PartialText": "With a loud groan, you manage to move the stone, but only an inch. It's still stuck.",
+    "PartialAction": "Blocked",
+    "Partial": 13,
+    "SuccessText": "You give a mighty heave, then with a great grinding sound, the stone turns freely! Bill claps your back and gives you a bag of sweet buns.",
+    "SuccessAction": "Draw 2 items",
     "Success": 13
   },
   {
@@ -843,7 +859,7 @@
     "PartialText": "You spot a child’s muddy footprints leading away from the house.",
     "PartialAction": "",
     "Partial": 13,
-    "SuccessText": "You see a small blue light dart into the woods over the wall.",
+    "SuccessText": "You see a small blue light dart into the forest over the wall.",
     "SuccessAction": "",
     "Success": 13
   },
@@ -859,7 +875,7 @@
     "PartialText": "You find one single, perfectly healthy-looking mint plant.",
     "PartialAction": "",
     "Partial": 13,
-    "SuccessText": "The farmer approaches 'This isn't right, soon nothing but these mushrooms will grow. Take this key, there's more in the woods'",
+    "SuccessText": "The farmer approaches 'This isn't right, soon nothing but these mushrooms will grow. Take this key, there's more in the forest'",
     "SuccessAction": "Raise your hand",
     "Success": 13
   },
@@ -881,6 +897,22 @@
   },
   {
     "Phase": 2,
+    "Area": "Village - Graveyard",
+    "Title": "Toppled Headstone",
+    "Story": "A large, ornate headstone has fallen over, blocking the path to the oldest part of the graveyard. It looks incredibly heavy.",
+    "Action": "Str Check",
+    "FailText": "You try to lift the stone, but it's too heavy. You strain your back",
+    "FailAction": "Take 1 damage|Blocked",
+    "Fail": 8,
+    "PartialText": "You manage to shift the stone a little, but it's still blocking the path.",
+    "PartialAction": "Next player must roll|Blocked",
+    "Partial": 13,
+    "SuccessText": "With a tremendous effort, you lift the headstone and set it back in its place. You find an old, rusted key in the dirt where it lay.",
+    "SuccessAction": "Raise your hand",
+    "Success": 13
+  },
+  {
+    "Phase": 2,
     "Area": "Village - House",
     "Title": "The Worried Father",
     "Story": "He sharpens a pitchfork by his fireplace. \"They're not just lost,\" he snarls, \"They were taken.",
@@ -891,7 +923,7 @@
     "PartialText": "You ask who was taken, he can't remember",
     "PartialAction": "",
     "Partial": 13,
-    "SuccessText": "You notice a map on his table with a large circle drawn around the Cairn in the woods.",
+    "SuccessText": "You notice a map on his table with a large circle drawn around the Cairn in the forest.",
     "SuccessAction": "",
     "Success": 13
   },
@@ -1035,7 +1067,7 @@
     "PartialText": "The symbol feels familiar, like a child’s drawing.",
     "PartialAction": "Blocked",
     "Partial": 13,
-    "SuccessText": "You realize the symbol is a map, pointing to a grove in the forest.",
+    "SuccessText": "You realize the symbol is a map, pointing to a Glade in the forest.",
     "SuccessAction": "",
     "Success": 13
   },
