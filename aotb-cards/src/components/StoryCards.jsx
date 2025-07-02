@@ -68,15 +68,15 @@ const StoryCards = () => {
           </div>
           <div className="notes-section">
             Notes:
-            <hr className="story-divider" />
+            <hr className="notes-divider" />
             <div className="notes-spacer"></div>
-            <hr className="story-divider" />
+            <hr className="notes-divider" />
             <div className="notes-spacer"></div>
-            <hr className="story-divider" />
+            <hr className="notes-divider" />
             <div className="notes-spacer"></div>
-            <hr className="story-divider" />
+            <hr className="notes-divider" />
             <div className="notes-spacer"></div>
-            <hr className="story-divider" />
+            <hr className="notes-divider" />
             <div className="notes-spacer"></div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const StoryCards = () => {
           <img className="story-border-image" src={process.env.PUBLIC_URL + '/border.png'} alt="" />
           <div className="story-border-content">
             <div className="story-title">{story.Title}</div>
-            <div className="story-divider" />
+            <hr className="story-divider" />
             <div className="story-section">{story.Story}</div>
             <div className="story-outcome">
               {out}

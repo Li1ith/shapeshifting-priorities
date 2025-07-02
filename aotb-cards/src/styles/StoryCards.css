@@ -92,9 +92,10 @@ body {
 
 .story-divider {
   border: 0;
+  width: 90%;
   height: 2px;
   background-color: #5a4f47;
-  margin: 2px 0;
+  margin: 4px 0;
 }
 
 .story-divider-vertical {
@@ -135,6 +136,13 @@ body {
 
 .notes-spacer {
   height: 20px;
+}
+
+.notes-divider {
+  border: 0;
+  height: 2px;
+  background-color: #5a4f47;
+  margin: 8px 0;
 }
 
 /* Story Back Styling */
