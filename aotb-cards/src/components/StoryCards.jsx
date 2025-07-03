@@ -196,8 +196,14 @@ const StoryCards = () => {
           Back to Home
         </Link>
         <h1 className="title">Story Cards</h1>
-        <button onClick={() => navigator.clipboard.writeText(JSON.stringify(stories, null, 2))}>
-          Copy JSON
+        <p className="instructions">
+          These cards are designed to be printed double-sided.
+          <br />
+          The front side contains the story details, while the back side provides the action check
+          and results.
+        </p>
+        <button onClick={() => window.print()} className="print-button">
+          Print Cards
         </button>
       </div>
       <div id="story-container">{renderStories()}</div>

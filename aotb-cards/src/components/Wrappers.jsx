@@ -74,6 +74,9 @@ const Wrappers = () => {
           Back to Home
         </Link>
         <h1 className="title">Wrappers</h1>
+        <button onClick={() => window.print()} className="print-button">
+          Print Cards
+        </button>
       </div>
       <div id="wrapper-container">{renderWrappers()}</div>
     </>

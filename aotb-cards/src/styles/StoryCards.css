@@ -7,6 +7,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.instructions {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
 /* Page Layout for A4 Printing */
 .page {
   width: 210mm !important;

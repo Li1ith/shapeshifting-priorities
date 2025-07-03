@@ -5,6 +5,8 @@ import LandingPage from './components/LandingPage';
 import CharacterCards from './components/CharacterCards';
 import StoryCards from './components/StoryCards';
 import Wrappers from './components/Wrappers';
+import Maps from './components/Maps';
+import Assets from './components/Assets';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/characters" element={<CharacterCards />} />
           <Route path="/stories" element={<StoryCards />} />
           <Route path="/wrappers" element={<Wrappers />} />
+          <Route path="/maps" element={<Maps />} />
+          <Route path="/assets" element={<Assets />} />
           {/* Add more routes as needed */}
         </Routes>
       </div>

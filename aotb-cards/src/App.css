@@ -29,9 +29,11 @@
 
 .card-options {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
+  max-width: 1200px;
 }
 
 .card-option {
@@ -77,4 +79,39 @@
 
 .back-link:hover {
   background-color: #d0cdc7;
+}
+
+.print-button {
+  display: inline-block;
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #e0ddd7;
+  border: 1px solid #5a4f47;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Libre Baskerville', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.print-button:hover {
+  background-color: #d0cdc7;
+}
+
+.corner-image-left {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  z-index: 1000;
+}
+
+.corner-image-right {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  z-index: 1000;
+  transform: scaleX(-1);
 }

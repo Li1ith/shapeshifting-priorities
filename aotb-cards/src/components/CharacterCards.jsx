@@ -120,6 +120,9 @@ const CharacterCards = () => {
           Back to Home
         </Link>
         <h1 className="title">Character Cards</h1>
+        <button onClick={() => window.print()} className="print-button">
+          Print Cards
+        </button>
       </div>
       <div id="card-container">{renderCards()}</div>
     </>
